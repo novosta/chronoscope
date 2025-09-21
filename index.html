@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chronoscope Records - Electronic Pop Music Label</title>
+    <meta name="description" content="Chronoscope Records - Independent electronic pop music label. Discover emerging artists and cutting-edge electronic pop music. Professional artist management and music protection.">
+    <meta name="keywords" content="electronic pop, music label, independent label, electronic music, pop music, emerging artists, music production">
+    <meta property="og:title" content="Chronoscope Records - Electronic Pop Music Label">
+    <meta property="og:description" content="Independent electronic pop music label featuring emerging artists and cutting-edge sounds.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://chronoscoperecords.com">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://chronoscoperecords.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #000000;
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid #333;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        .nav-links a:hover {
+            color: #888;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            background: linear-gradient(135deg, #000000 0%, #111111 100%);
+        }
+
+        .hero-content h1 {
+            font-size: clamp(3rem, 8vw, 8rem);
+            font-weight: 900;
+            margin-bottom: 20px;
+            letter-spacing: -3px;
+            text-transform: uppercase;
+        }
+
+        .hero-content p {
+            font-size: 20px;
+            color: #888;
+            margin-bottom: 40px;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: #ffffff;
+            color: #000000;
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border: 2px solid #ffffff;
+        }
+
+        .cta-button:hover {
+            background: transparent;
+            color: #ffffff;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            font-size: 48px;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 60px;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+        }
+
+        /* Featured Releases */
+        .releases-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .release-card {
+            background: #111111;
+            border: 1px solid #333;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .release-card:hover {
+            border-color: #888;
+            transform: translateY(-5px);
+        }
+
+        .release-artwork {
+            width: 100%;
+            height: 300px;
+            background: #222;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: #666;
+        }
+
+        .release-info {
+            padding: 30px;
+        }
+
+        .release-info h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .release-info p {
+            color: #888;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Artists Grid */
+        .artists-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .artist-card {
+            text-align: center;
+            background: #111111;
+            padding: 40px 20px;
+            border: 1px solid #333;
+            transition: all 0.3s ease;
+        }
+
+        .artist-card:hover {
+            border-color: #888;
+            transform: translateY(-5px);
+        }
+
+        .artist-photo {
+            width: 150px;
+            height: 150px;
+            background: #222;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: #666;
+        }
+
+        .artist-name {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .artist-genre {
+            color: #888;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* About Section */
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-content p {
+            font-size: 18px;
+            color: #ccc;
+            margin-bottom: 30px;
+            font-weight: 300;
+            line-height: 1.8;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: #111111;
+        }
+
+        .contact-content {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .contact-item h4 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .contact-item a {
+            color: #888;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: #ffffff;
+        }
+
+        /* Footer */
+        footer {
+            background: #000000;
+            text-align: center;
+            padding: 40px 0;
+            border-top: 1px solid #333;
+        }
+
+        footer p {
+            color: #666;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 2px;
+            background: #ffffff;
+            transition: 0.3s;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .hero-content h1 {
+                font-size: 4rem;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .releases-grid,
+            .artists-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .contact-info {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">Chronoscope</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#releases">Releases</a></li>
+                <li><a href="#artists">Artists</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Chronoscope</h1>
+                <p>Electronic Pop Music Label</p>
+                <a href="#contact" class="cta-button">Submit Demo</a>
+            </div>
+        </section>
+
+        <section id="releases" class="container">
+            <h2 class="section-title fade-in">Latest Releases</h2>
+            <div class="releases-grid">
+                <div class="release-card fade-in">
+                    <div class="release-artwork">♪</div>
+                    <div class="release-info">
+                        <h3>Coming Soon</h3>
+                        <p>First Release</p>
+                    </div>
+                </div>
+                <div class="release-card fade-in">
+                    <div class="release-artwork">♪</div>
+                    <div class="release-info">
+                        <h3>Coming Soon</h3>
+                        <p>Electronic Pop</p>
+                    </div>
+                </div>
+                <div class="release-card fade-in">
+                    <div class="release-artwork">♪</div>
+                    <div class="release-info">
+                        <h3>Coming Soon</h3>
+                        <p>New Artist</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="artists" class="container">
+            <h2 class="section-title fade-in">Our Artists</h2>
+            <div class="artists-grid">
+                <div class="artist-card fade-in">
+                    <div class="artist-photo">★</div>
+                    <div class="artist-name">Open Roster</div>
+                    <div class="artist-genre">Electronic Pop</div>
+                </div>
+                <div class="artist-card fade-in">
+                    <div class="artist-photo">★</div>
+                    <div class="artist-name">Submit Demo</div>
+                    <div class="artist-genre">Join Us</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="container">
+            <h2 class="section-title fade-in">About Chronoscope</h2>
+            <div class="about-content fade-in">
+                <p>Chronoscope Records is an independent electronic pop music label dedicated to supporting emerging artists with professional management, comprehensive music protection, and strategic release planning.</p>
+                <p>We provide exclusive artist partnerships with fair revenue sharing, monthly release schedules, and industry-leading intellectual property protection to help artists focus on creating while we handle the business.</p>
+                <p>Our roster focuses on innovative electronic pop artists ready to make their mark on the music industry with consistent, high-quality releases.</p>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2 class="section-title fade-in">Get In Touch</h2>
+                <div class="contact-content fade-in">
+                    <p style="font-size: 18px; color: #ccc; margin-bottom: 40px;">Ready to join the Chronoscope family? We're looking for dedicated electronic pop artists ready for monthly releases and professional representation.</p>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <h4>Demo Submissions</h4>
+                            <a href="mailto:demos@chronoscoperecords.com">demos@chronoscoperecords.com</a>
+                        </div>
+                        <div class="contact-item">
+                            <h4>Business Inquiries</h4>
+                            <a href="mailto:info@chronoscoperecords.com">info@chronoscoperecords.com</a>
+                        </div>
+                        <div class="contact-item">
+                            <h4>Press & Media</h4>
+                            <a href="mailto:press@chronoscoperecords.com">press@chronoscoperecords.com</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Chronoscope Records. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Mobile menu functionality (basic structure for future implementation)
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenu.addEventListener('click', () => {
+            // Toggle mobile menu (you can expand this functionality)
+            console.log('Mobile menu clicked');
+        });
+    </script>
+
+    <!-- Schema.org structured data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "MusicGroup",
+        "name": "Chronoscope Records",
+        "description": "Independent electronic pop music label supporting emerging artists",
+        "url": "https://chronoscoperecords.com",
+        "genre": ["Electronic Pop", "Electronic Music", "Pop Music"],
+        "sameAs": [
+            "https://soundcloud.com/chronoscoperecords",
+            "https://instagram.com/chronoscoperecords",
+            "https://twitter.com/chronoscoperecs"
+        ]
+    }
+    </script>
+</body>
+</html>
