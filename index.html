@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -16,940 +15,940 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-```
-<style>
-    /* CSS Reset and Base Styles */
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    html {
-        font-size: 16px;
-        scroll-behavior: smooth;
-        -webkit-text-size-adjust: 100%;
-    }
-
-    body {
-        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        background-color: #000000;
-        color: #ffffff;
-        line-height: 1.6;
-        overflow-x: hidden;
-        font-size: 1rem;
-    }
-
-    .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 1rem;
-        width: 100%;
-    }
-
-    /* Typography - Mobile First */
-    h1 {
-        font-size: 2.5rem;
-        font-weight: 900;
-        letter-spacing: -2px;
-        text-transform: uppercase;
-        line-height: 1.1;
-    }
-
-    h2 {
-        font-size: 1.75rem;
-        font-weight: 800;
-        text-transform: uppercase;
-        letter-spacing: -1px;
-        line-height: 1.2;
-    }
-
-    h3 {
-        font-size: 1.125rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        line-height: 1.3;
-    }
-
-    p {
-        font-size: 1rem;
-        line-height: 1.6;
-        margin-bottom: 1rem;
-    }
-
-    /* Header - Mobile First */
-    header {
-        position: fixed;
-        top: 0;
-        width: 100%;
-        background: rgba(0, 0, 0, 0.95);
-        backdrop-filter: blur(10px);
-        z-index: 1000;
-        border-bottom: 1px solid #333;
-        height: 60px;
-    }
-
-    nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        height: 100%;
-        position: relative;
-    }
-
-    .logo {
-        font-size: 1.25rem;
-        font-weight: 800;
-        letter-spacing: -0.5px;
-        text-transform: uppercase;
-        color: #ffffff;
-        text-decoration: none;
-    }
-
-    /* Mobile Navigation */
-    .nav-links {
-        position: fixed;
-        top: 60px;
-        left: 0;
-        width: 100%;
-        background: rgba(0, 0, 0, 0.98);
-        backdrop-filter: blur(10px);
-        padding: 2rem 1rem;
-        transform: translateX(-100%);
-        transition: transform 0.3s ease;
-        list-style: none;
-        border-bottom: 1px solid #333;
-    }
-
-    .nav-links.active {
-        transform: translateX(0);
-    }
-
-    .nav-links li {
-        margin-bottom: 1.5rem;
-    }
-
-    .nav-links a {
-        color: #ffffff;
-        text-decoration: none;
-        font-weight: 500;
-        font-size: 1.125rem;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        display: block;
-        padding: 0.75rem 0;
-        border-bottom: 1px solid transparent;
-        transition: all 0.3s ease;
-        min-height: 44px;
-        display: flex;
-        align-items: center;
-    }
-
-    .nav-links a:hover,
-    .nav-links a:focus {
-        color: #888;
-        border-bottom-color: #888;
-    }
-
-    /* Hamburger Menu */
-    .mobile-menu {
-        display: flex;
-        flex-direction: column;
-        cursor: pointer;
-        gap: 4px;
-        padding: 0.5rem;
-        z-index: 1001;
-        position: relative;
-        min-height: 44px;
-        min-width: 44px;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .mobile-menu span {
-        width: 25px;
-        height: 2px;
-        background: #ffffff;
-        transition: all 0.3s ease;
-        transform-origin: center;
-    }
-
-    .mobile-menu.active span:nth-child(1) {
-        transform: rotate(45deg) translate(6px, 6px);
-    }
-
-    .mobile-menu.active span:nth-child(2) {
-        opacity: 0;
-    }
-
-    .mobile-menu.active span:nth-child(3) {
-        transform: rotate(-45deg) translate(6px, -6px);
-    }
-
-    /* Hero Section - Mobile First */
-    .hero {
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        position: relative;
-        background: linear-gradient(135deg, #000000 0%, #111111 100%);
-        padding: 80px 1rem 2rem;
-    }
-
-    .hero-content p {
-        font-size: 1.125rem;
-        color: #888;
-        margin-bottom: 2rem;
-        font-weight: 300;
-        letter-spacing: 1px;
-    }
-
-    /* CTA Button - Touch Friendly */
-    .cta-button {
-        display: inline-block;
-        padding: 1rem 2rem;
-        background: #ffffff;
-        color: #000000;
-        text-decoration: none;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        transition: all 0.3s ease;
-        border: 2px solid #ffffff;
-        font-size: 0.875rem;
-        min-height: 44px;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-    }
-
-    .cta-button:hover,
-    .cta-button:focus {
-        background: transparent;
-        color: #ffffff;
-        outline: 2px solid #ffffff;
-        outline-offset: 2px;
-    }
-
-    /* Section Styles - Mobile First */
-    section {
-        padding: 3rem 0;
-    }
-
-    .section-title {
-        text-align: center;
-        margin-bottom: 2rem;
-    }
-
-    /* Featured Releases - Mobile First Grid */
-    .releases-grid {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 2rem;
-        margin-top: 2rem;
-    }
-
-    .release-card {
-        background: #111111;
-        border: 1px solid #333;
-        transition: all 0.3s ease;
-        cursor: pointer;
-        border-radius: 8px;
-        overflow: hidden;
-    }
-
-    .release-card:hover,
-    .release-card:focus-within {
-        border-color: #888;
-        transform: translateY(-2px);
-    }
-
-    .release-artwork {
-        width: 100%;
-        height: 200px;
-        background: #222;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 2rem;
-        color: #666;
-    }
-
-    .release-info {
-        padding: 1.5rem;
-    }
-
-    .release-info h3 {
-        margin-bottom: 0.5rem;
-    }
-
-    .release-info p {
-        color: #888;
-        font-size: 0.875rem;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        margin-bottom: 0;
-    }
-
-    /* Artists Grid - Mobile First */
-    .artists-grid {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-
-    .artist-card {
-        text-align: center;
-        background: #111111;
-        padding: 2rem 1.5rem;
-        border: 1px solid #333;
-        transition: all 0.3s ease;
-        border-radius: 8px;
-    }
-
-    .artist-card:hover,
-    .artist-card:focus-within {
-        border-color: #888;
-        transform: translateY(-2px);
-    }
-
-    .artist-photo {
-        width: 100px;
-        height: 100px;
-        background: #222;
-        border-radius: 50%;
-        margin: 0 auto 1rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.5rem;
-        color: #666;
-    }
-
-    .artist-name {
-        font-size: 1.125rem;
-        font-weight: 700;
-        margin-bottom: 0.5rem;
-        text-transform: uppercase;
-    }
-
-    .artist-genre {
-        color: #888;
-        font-size: 0.875rem;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-    }
-
-    /* About Section */
-    .about-content {
-        max-width: 600px;
-        margin: 0 auto;
-        text-align: center;
-    }
-
-    .about-content p {
-        font-size: 1rem;
-        color: #ccc;
-        margin-bottom: 1.5rem;
-        font-weight: 300;
-        line-height: 1.7;
-    }
-
-    /* Contact Section */
-    .contact {
-        background: #111111;
-    }
-
-    .contact-content {
-        text-align: center;
-        max-width: 600px;
-        margin: 0 auto;
-    }
-
-    .contact-intro {
-        font-size: 1rem;
-        color: #ccc;
-        margin-bottom: 2rem;
-        line-height: 1.7;
-    }
-
-    .contact-info {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 2rem;
-        margin-top: 2rem;
-    }
-
-    .contact-item {
-        padding: 1.5rem;
-        background: #000;
-        border: 1px solid #333;
-        border-radius: 8px;
-        transition: all 0.3s ease;
-    }
-
-    .contact-item:hover,
-    .contact-item:focus-within {
-        border-color: #888;
-        transform: translateY(-2px);
-    }
-
-    .contact-item h4 {
-        font-size: 1rem;
-        font-weight: 700;
-        margin-bottom: 0.75rem;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-    }
-
-    .contact-item a {
-        color: #888;
-        text-decoration: none;
-        transition: color 0.3s ease;
-        font-size: 0.9rem;
-        word-break: break-all;
-        display: block;
-        padding: 0.5rem 0;
-        min-height: 44px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .contact-item a:hover,
-    .contact-item a:focus {
-        color: #ffffff;
-        outline: 2px solid #888;
-        outline-offset: 2px;
-    }
-
-    /* Footer */
-    footer {
-        background: #000000;
-        text-align: center;
-        padding: 2rem 0;
-        border-top: 1px solid #333;
-    }
-
-    footer p {
-        color: #666;
-        font-size: 0.875rem;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-    }
-
-    /* Animations */
-    .fade-in {
-        opacity: 0;
-        transform: translateY(20px);
-        transition: all 0.8s ease;
-    }
-
-    .fade-in.visible {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-    /* Focus Styles for Accessibility */
-    *:focus {
-        outline: 2px solid #888;
-        outline-offset: 2px;
-    }
-
-    /* Skip Link for Accessibility */
-    .skip-link {
-        position: absolute;
-        top: -40px;
-        left: 6px;
-        background: #000;
-        color: #fff;
-        padding: 8px;
-        text-decoration: none;
-        z-index: 1001;
-    }
-
-    .skip-link:focus {
-        top: 6px;
-    }
-
-    /* Tablet Styles */
-    @media (min-width: 768px) {
-        .container {
-            padding: 0 2rem;
+    
+    <style>
+        /* CSS Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #000000;
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+            font-size: 1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            width: 100%;
+        }
+
+        /* Typography - Mobile First */
         h1 {
-            font-size: 4rem;
+            font-size: 2.5rem;
+            font-weight: 900;
+            letter-spacing: -2px;
+            text-transform: uppercase;
+            line-height: 1.1;
         }
 
         h2 {
-            font-size: 2.5rem;
+            font-size: 1.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            line-height: 1.2;
         }
 
+        h3 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            line-height: 1.3;
+        }
+
+        p {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        /* Header - Mobile First */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid #333;
+            height: 60px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+            position: relative;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            text-transform: uppercase;
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        /* Mobile Navigation */
+        .nav-links {
+            position: fixed;
+            top: 60px;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.98);
+            backdrop-filter: blur(10px);
+            padding: 2rem 1rem;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+            list-style: none;
+            border-bottom: 1px solid #333;
+        }
+
+        .nav-links.active {
+            transform: translateX(0);
+        }
+
+        .nav-links li {
+            margin-bottom: 1.5rem;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.125rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: block;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid transparent;
+            transition: all 0.3s ease;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links a:hover,
+        .nav-links a:focus {
+            color: #888;
+            border-bottom-color: #888;
+        }
+
+        /* Hamburger Menu */
+        .mobile-menu {
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+            padding: 0.5rem;
+            z-index: 1001;
+            position: relative;
+            min-height: 44px;
+            min-width: 44px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 2px;
+            background: #ffffff;
+            transition: all 0.3s ease;
+            transform-origin: center;
+        }
+
+        .mobile-menu.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .mobile-menu.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        /* Hero Section - Mobile First */
         .hero {
-            padding: 80px 2rem 2rem;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            background: linear-gradient(135deg, #000000 0%, #111111 100%);
+            padding: 80px 1rem 2rem;
         }
 
         .hero-content p {
-            font-size: 1.25rem;
+            font-size: 1.125rem;
+            color: #888;
+            margin-bottom: 2rem;
+            font-weight: 300;
+            letter-spacing: 1px;
         }
 
+        /* CTA Button - Touch Friendly */
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: #ffffff;
+            color: #000000;
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border: 2px solid #ffffff;
+            font-size: 0.875rem;
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .cta-button:hover,
+        .cta-button:focus {
+            background: transparent;
+            color: #ffffff;
+            outline: 2px solid #ffffff;
+            outline-offset: 2px;
+        }
+
+        /* Section Styles - Mobile First */
         section {
-            padding: 4rem 0;
+            padding: 5rem 0;
         }
 
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-top: 2rem;
+        }
+
+        /* Featured Releases - Mobile First Grid */
         .releases-grid {
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2.5rem;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
         }
 
-        .artists-grid {
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2.5rem;
+        .release-card {
+            background: #111111;
+            border: 1px solid #333;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border-radius: 8px;
+            overflow: hidden;
         }
 
-        .contact-info {
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
+        .release-card:hover,
+        .release-card:focus-within {
+            border-color: #888;
+            transform: translateY(-2px);
         }
 
         .release-artwork {
-            height: 250px;
+            width: 100%;
+            height: 200px;
+            background: #222;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: #666;
+        }
+
+        .release-info {
+            padding: 1.5rem;
+        }
+
+        .release-info h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .release-info p {
+            color: #888;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0;
+        }
+
+        /* Artists Grid - Mobile First */
+        .artists-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+
+        .artist-card {
+            text-align: center;
+            background: #111111;
+            padding: 3rem 2rem;
+            border: 1px solid #333;
+            transition: all 0.3s ease;
+            border-radius: 8px;
+        }
+
+        .artist-card:hover,
+        .artist-card:focus-within {
+            border-color: #888;
+            transform: translateY(-2px);
         }
 
         .artist-photo {
             width: 120px;
             height: 120px;
-        }
-    }
-
-    /* Desktop Styles */
-    @media (min-width: 1024px) {
-        header {
-            height: 80px;
-        }
-
-        nav {
-            padding: 0;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-        }
-
-        /* Desktop Navigation */
-        .nav-links {
-            position: static;
-            transform: none;
-            background: transparent;
-            backdrop-filter: none;
-            padding: 0;
+            background: #222;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
             display: flex;
-            gap: 2.5rem;
-            border: none;
-            width: auto;
-        }
-
-        .nav-links li {
-            margin-bottom: 0;
-        }
-
-        .nav-links a {
-            font-size: 0.875rem;
-            padding: 0;
-            border-bottom: none;
-            min-height: auto;
-            display: inline;
-        }
-
-        .mobile-menu {
-            display: none;
-        }
-
-        h1 {
-            font-size: 6rem;
-            letter-spacing: -3px;
-        }
-
-        h2 {
-            font-size: 3rem;
-        }
-
-        .hero {
-            padding: 120px 2rem 2rem;
-        }
-
-        .hero-content p {
-            font-size: 1.375rem;
-        }
-
-        section {
-            padding: 6rem 0;
-        }
-
-        .section-title {
-            margin-bottom: 4rem;
-        }
-
-        .releases-grid {
-            grid-template-columns: repeat(3, 1fr);
-            gap: 3rem;
-        }
-
-        .artists-grid {
-            grid-template-columns: repeat(3, 1fr);
-            gap: 3rem;
-        }
-
-        .contact-info {
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2.5rem;
-        }
-
-        .release-artwork {
-            height: 300px;
-            font-size: 3rem;
-        }
-
-        .artist-photo {
-            width: 150px;
-            height: 150px;
+            align-items: center;
+            justify-content: center;
             font-size: 1.75rem;
+            color: #666;
         }
 
+        .artist-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+        }
+
+        .artist-genre {
+            color: #888;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* About Section */
         .about-content {
-            max-width: 800px;
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
         }
 
         .about-content p {
-            font-size: 1.125rem;
+            font-size: 1rem;
+            color: #ccc;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+            line-height: 1.7;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: #111111;
+        }
+
+        .contact-content {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
         .contact-intro {
-            font-size: 1.125rem;
-        }
-    }
-
-    /* Large Desktop */
-    @media (min-width: 1440px) {
-        h1 {
-            font-size: 8rem;
+            font-size: 1rem;
+            color: #ccc;
+            margin-bottom: 2rem;
+            line-height: 1.7;
         }
 
-        .releases-grid {
-            gap: 4rem;
+        .contact-info {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+            margin-top: 3rem;
         }
 
-        .artists-grid {
-            gap: 4rem;
-        }
-    }
-
-    /* Reduced Motion */
-    @media (prefers-reduced-motion: reduce) {
-        * {
-            animation-duration: 0.01ms !important;
-            animation-iteration-count: 1 !important;
-            transition-duration: 0.01ms !important;
-        }
-
-        html {
-            scroll-behavior: auto;
-        }
-    }
-
-    /* High Contrast Mode Support */
-    @media (prefers-contrast: high) {
-        .release-card,
-        .artist-card,
         .contact-item {
-            border-width: 2px;
-        }
-    }
-
-    /* Print Styles */
-    @media print {
-        header {
-            position: static;
+            padding: 2rem;
+            background: #000;
+            border: 1px solid #333;
+            border-radius: 8px;
+            transition: all 0.3s ease;
         }
 
-        .mobile-menu {
-            display: none;
+        .contact-item:hover,
+        .contact-item:focus-within {
+            border-color: #888;
+            transform: translateY(-2px);
         }
 
-        .hero {
-            min-height: auto;
-            page-break-after: always;
+        .contact-item h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
+        .contact-item a {
+            color: #888;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 0.9rem;
+            word-break: break-all;
+            display: block;
+            padding: 0.5rem 0;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-item a:hover,
+        .contact-item a:focus {
+            color: #ffffff;
+            outline: 2px solid #888;
+            outline-offset: 2px;
+        }
+
+        /* Footer */
+        footer {
+            background: #000000;
+            text-align: center;
+            padding: 2rem 0;
+            border-top: 1px solid #333;
+        }
+
+        footer p {
+            color: #666;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Animations */
         .fade-in {
-            opacity: 1;
-            transform: none;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease;
         }
-    }
-</style>
-```
 
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Focus Styles for Accessibility */
+        *:focus {
+            outline: 2px solid #888;
+            outline-offset: 2px;
+        }
+
+        /* Skip Link for Accessibility */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 6px;
+            background: #000;
+            color: #fff;
+            padding: 8px;
+            text-decoration: none;
+            z-index: 1001;
+        }
+
+        .skip-link:focus {
+            top: 6px;
+        }
+
+        /* Tablet Styles */
+        @media (min-width: 768px) {
+            .container {
+                padding: 0 2rem;
+            }
+
+            h1 {
+                font-size: 4rem;
+            }
+
+            h2 {
+                font-size: 2.5rem;
+            }
+
+            .hero {
+                padding: 80px 2rem 2rem;
+            }
+
+            .hero-content p {
+                font-size: 1.25rem;
+            }
+
+            section {
+                padding: 6rem 0;
+            }
+
+            .section-title {
+                padding-top: 3rem;
+            }
+
+            .releases-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2.5rem;
+            }
+
+            .artists-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2.5rem;
+            }
+
+            .contact-info {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+
+            .release-artwork {
+                height: 250px;
+            }
+
+            .artist-photo {
+                width: 120px;
+                height: 120px;
+            }
+        }
+
+        /* Desktop Styles */
+        @media (min-width: 1024px) {
+            header {
+                height: 80px;
+            }
+
+            nav {
+                padding: 0;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+
+            /* Desktop Navigation */
+            .nav-links {
+                position: static;
+                transform: none;
+                background: transparent;
+                backdrop-filter: none;
+                padding: 0;
+                display: flex;
+                gap: 2.5rem;
+                border: none;
+                width: auto;
+            }
+
+            .nav-links li {
+                margin-bottom: 0;
+            }
+
+            .nav-links a {
+                font-size: 0.875rem;
+                padding: 0;
+                border-bottom: none;
+                min-height: auto;
+                display: inline;
+            }
+
+            .mobile-menu {
+                display: none;
+            }
+
+            h1 {
+                font-size: 6rem;
+                letter-spacing: -3px;
+            }
+
+            h2 {
+                font-size: 3rem;
+            }
+
+            .hero {
+                padding: 120px 2rem 2rem;
+            }
+
+            .hero-content p {
+                font-size: 1.375rem;
+            }
+
+            section {
+                padding: 10rem 0;
+            }
+
+            .section-title {
+                margin-bottom: 5rem;
+                padding-top: 4rem;
+            }
+
+            .releases-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 3rem;
+            }
+
+            .artists-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 3rem;
+            }
+
+            .contact-info {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 2.5rem;
+            }
+
+            .release-artwork {
+                height: 300px;
+                font-size: 3rem;
+            }
+
+            .artist-photo {
+                width: 150px;
+                height: 150px;
+                font-size: 1.75rem;
+            }
+
+            .about-content {
+                max-width: 800px;
+            }
+
+            .about-content p {
+                font-size: 1.125rem;
+            }
+
+            .contact-intro {
+                font-size: 1.125rem;
+            }
+        }
+
+        /* Large Desktop */
+        @media (min-width: 1440px) {
+            h1 {
+                font-size: 8rem;
+            }
+
+            .releases-grid {
+                gap: 4rem;
+            }
+
+            .artists-grid {
+                gap: 4rem;
+            }
+        }
+
+        /* Reduced Motion */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+
+            html {
+                scroll-behavior: auto;
+            }
+        }
+
+        /* High Contrast Mode Support */
+        @media (prefers-contrast: high) {
+            .release-card,
+            .artist-card,
+            .contact-item {
+                border-width: 2px;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            header {
+                position: static;
+            }
+
+            .mobile-menu {
+                display: none;
+            }
+
+            .hero {
+                min-height: auto;
+                page-break-after: always;
+            }
+
+            .fade-in {
+                opacity: 1;
+                transform: none;
+            }
+        }
+    </style>
 </head>
 <body>
     <a href="#main" class="skip-link">Skip to main content</a>
+    
+    <header>
+        <nav class="container">
+            <a href="#home" class="logo">Chronoscope</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#releases">Releases</a></li>
+                <li><a href="#artists">Artists</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="mobile-menu" id="mobileMenuBtn" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
 
-```
-<header>
-    <nav class="container">
-        <a href="#home" class="logo">Chronoscope</a>
-        <ul class="nav-links" id="navLinks">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#releases">Releases</a></li>
-            <li><a href="#artists">Artists</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-        <button class="mobile-menu" id="mobileMenuBtn" aria-label="Toggle navigation menu" aria-expanded="false">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-    </nav>
-</header>
+    <main id="main">
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Chronoscope</h1>
+                <p>Electronic Pop Music Label</p>
+                <a href="#contact" class="cta-button">Submit Demo</a>
+            </div>
+        </section>
 
-<main id="main">
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Chronoscope</h1>
-            <p>Electronic Pop Music Label</p>
-            <a href="#contact" class="cta-button">Submit Demo</a>
-        </div>
-    </section>
+        <section id="releases" class="container">
+            <h2 class="section-title fade-in">Latest Releases</h2>
+            <div class="releases-grid">
+                <article class="release-card fade-in" tabindex="0">
+                    <div class="release-artwork" aria-label="Album artwork placeholder">♪</div>
+                    <div class="release-info">
+                        <h3>Coming Soon</h3>
+                        <p>First Release</p>
+                    </div>
+                </article>
+                <article class="release-card fade-in" tabindex="0">
+                    <div class="release-artwork" aria-label="Album artwork placeholder">♪</div>
+                    <div class="release-info">
+                        <h3>Coming Soon</h3>
+                        <p>Electronic Pop</p>
+                    </div>
+                </article>
+                <article class="release-card fade-in" tabindex="0">
+                    <div class="release-artwork" aria-label="Album artwork placeholder">♪</div>
+                    <div class="release-info">
+                        <h3>Coming Soon</h3>
+                        <p>New Artist</p>
+                    </div>
+                </article>
+            </div>
+        </section>
 
-    <section id="releases" class="container">
-        <h2 class="section-title fade-in">Latest Releases</h2>
-        <div class="releases-grid">
-            <article class="release-card fade-in" tabindex="0">
-                <div class="release-artwork" aria-label="Album artwork placeholder">♪</div>
-                <div class="release-info">
-                    <h3>Coming Soon</h3>
-                    <p>First Release</p>
-                </div>
-            </article>
-            <article class="release-card fade-in" tabindex="0">
-                <div class="release-artwork" aria-label="Album artwork placeholder">♪</div>
-                <div class="release-info">
-                    <h3>Coming Soon</h3>
-                    <p>Electronic Pop</p>
-                </div>
-            </article>
-            <article class="release-card fade-in" tabindex="0">
-                <div class="release-artwork" aria-label="Album artwork placeholder">♪</div>
-                <div class="release-info">
-                    <h3>Coming Soon</h3>
-                    <p>New Artist</p>
-                </div>
-            </article>
-        </div>
-    </section>
+        <section id="artists" class="container">
+            <h2 class="section-title fade-in">Our Artists</h2>
+            <div class="artists-grid">
+                <article class="artist-card fade-in" tabindex="0">
+                    <div class="artist-photo" aria-label="Artist photo placeholder">★</div>
+                    <h3 class="artist-name">Open Roster</h3>
+                    <p class="artist-genre">Electronic Pop</p>
+                </article>
+                <article class="artist-card fade-in" tabindex="0">
+                    <div class="artist-photo" aria-label="Artist photo placeholder">★</div>
+                    <h3 class="artist-name">Submit Demo</h3>
+                    <p class="artist-genre">Join Us</p>
+                </article>
+            </div>
+        </section>
 
-    <section id="artists" class="container">
-        <h2 class="section-title fade-in">Our Artists</h2>
-        <div class="artists-grid">
-            <article class="artist-card fade-in" tabindex="0">
-                <div class="artist-photo" aria-label="Artist photo placeholder">★</div>
-                <h3 class="artist-name">Open Roster</h3>
-                <p class="artist-genre">Electronic Pop</p>
-            </article>
-            <article class="artist-card fade-in" tabindex="0">
-                <div class="artist-photo" aria-label="Artist photo placeholder">★</div>
-                <h3 class="artist-name">Submit Demo</h3>
-                <p class="artist-genre">Join Us</p>
-            </article>
-        </div>
-    </section>
+        <section id="about" class="container">
+            <h2 class="section-title fade-in">About Chronoscope</h2>
+            <div class="about-content fade-in">
+                <p>Chronoscope Records is an independent electronic pop music label dedicated to supporting emerging artists with professional management, comprehensive music protection, and strategic release planning.</p>
+                <p>We provide exclusive artist partnerships with fair revenue sharing, monthly release schedules, and industry-leading intellectual property protection to help artists focus on creating while we handle the business.</p>
+                <p>Our roster focuses on innovative electronic pop artists ready to make their mark on the music industry with consistent, high-quality releases.</p>
+            </div>
+        </section>
 
-    <section id="about" class="container">
-        <h2 class="section-title fade-in">About Chronoscope</h2>
-        <div class="about-content fade-in">
-            <p>Chronoscope Records is an independent electronic pop music label dedicated to supporting emerging artists with professional management, comprehensive music protection, and strategic release planning.</p>
-            <p>We provide exclusive artist partnerships with fair revenue sharing, monthly release schedules, and industry-leading intellectual property protection to help artists focus on creating while we handle the business.</p>
-            <p>Our roster focuses on innovative electronic pop artists ready to make their mark on the music industry with consistent, high-quality releases.</p>
-        </div>
-    </section>
-
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title fade-in">Get In Touch</h2>
-            <div class="contact-content fade-in">
-                <p class="contact-intro">Ready to join the Chronoscope family? We're looking for dedicated electronic pop artists ready for monthly releases and professional representation.</p>
-                <div class="contact-info">
-                    <article class="contact-item">
-                        <h4>Demo Submissions</h4>
-                        <a href="mailto:demos@chronoscoperecords.com">demos@chronoscoperecords.com</a>
-                    </article>
-                    <article class="contact-item">
-                        <h4>Business Inquiries</h4>
-                        <a href="mailto:info@chronoscoperecords.com">info@chronoscoperecords.com</a>
-                    </article>
-                    <article class="contact-item">
-                        <h4>Press & Media</h4>
-                        <a href="mailto:press@chronoscoperecords.com">press@chronoscoperecords.com</a>
-                    </article>
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2 class="section-title fade-in">Get In Touch</h2>
+                <div class="contact-content fade-in">
+                    <p class="contact-intro">Ready to join the Chronoscope family? We're looking for dedicated electronic pop artists ready for monthly releases and professional representation.</p>
+                    <div class="contact-info">
+                        <article class="contact-item">
+                            <h4>Demo Submissions</h4>
+                            <a href="mailto:demos@chronoscoperecords.com">demos@chronoscoperecords.com</a>
+                        </article>
+                        <article class="contact-item">
+                            <h4>Business Inquiries</h4>
+                            <a href="mailto:info@chronoscoperecords.com">info@chronoscoperecords.com</a>
+                        </article>
+                        <article class="contact-item">
+                            <h4>Press & Media</h4>
+                            <a href="mailto:press@chronoscoperecords.com">press@chronoscoperecords.com</a>
+                        </article>
+                    </div>
                 </div>
             </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Chronoscope Records. All Rights Reserved.</p>
         </div>
-    </section>
-</main>
+    </footer>
 
-<footer>
-    <div class="container">
-        <p>&copy; 2025 Chronoscope Records. All Rights Reserved.</p>
-    </div>
-</footer>
+    <script>
+        // Mobile menu functionality
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
 
-<script>
-    // Mobile menu functionality
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const navLinks = document.getElementById('navLinks');
+        mobileMenuBtn.addEventListener('click', () => {
+            const isExpanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
+            
+            mobileMenuBtn.setAttribute('aria-expanded', !isExpanded);
+            mobileMenuBtn.classList.toggle('active');
+            navLinks.classList.toggle('active');
+            
+            // Prevent body scroll when menu is open
+            document.body.style.overflow = isExpanded ? 'auto' : 'hidden';
+        });
 
-    mobileMenuBtn.addEventListener('click', () => {
-        const isExpanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
-        
-        mobileMenuBtn.setAttribute('aria-expanded', !isExpanded);
-        mobileMenuBtn.classList.toggle('active');
-        navLinks.classList.toggle('active');
-        
-        // Prevent body scroll when menu is open
-        document.body.style.overflow = isExpanded ? 'auto' : 'hidden';
-    });
-
-    // Close mobile menu when clicking on links
-    navLinks.addEventListener('click', (e) => {
-        if (e.target.tagName === 'A') {
-            mobileMenuBtn.setAttribute('aria-expanded', 'false');
-            mobileMenuBtn.classList.remove('active');
-            navLinks.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
-    });
-
-    // Close mobile menu on window resize
-    window.addEventListener('resize', () => {
-        if (window.innerWidth >= 1024) {
-            mobileMenuBtn.setAttribute('aria-expanded', 'false');
-            mobileMenuBtn.classList.remove('active');
-            navLinks.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
-    });
-
-    // Smooth scrolling for navigation links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                // Account for fixed header height
-                const headerHeight = window.innerWidth >= 1024 ? 80 : 60;
-                const targetPosition = target.offsetTop - headerHeight;
-                
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
+        // Close mobile menu when clicking on links
+        navLinks.addEventListener('click', (e) => {
+            if (e.target.tagName === 'A') {
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                mobileMenuBtn.classList.remove('active');
+                navLinks.classList.remove('active');
+                document.body.style.overflow = 'auto';
             }
         });
-    });
 
-    // Fade in animation on scroll with better performance
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                // Stop observing once visible for better performance
-                observer.unobserve(entry.target);
+        // Close mobile menu on window resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 1024) {
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                mobileMenuBtn.classList.remove('active');
+                navLinks.classList.remove('active');
+                document.body.style.overflow = 'auto';
             }
         });
-    }, observerOptions);
 
-    // Observe elements only after DOM is fully loaded
-    document.addEventListener('DOMContentLoaded', () => {
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
-    });
-
-    // Add keyboard navigation support for cards
-    document.querySelectorAll('.release-card, .artist-card').forEach(card => {
-        card.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                card.click();
-            }
-        });
-    });
-
-    // Enhanced focus management
-    document.addEventListener('keydown', (e) => {
-        // Escape key closes mobile menu
-        if (e.key === 'Escape' && navLinks.classList.contains('active')) {
-            mobileMenuBtn.setAttribute('aria-expanded', 'false');
-            mobileMenuBtn.classList.remove('active');
-            navLinks.classList.remove('active');
-            document.body.style.overflow = 'auto';
-            mobileMenuBtn.focus();
-        }
-    });
-
-    // Performance optimization: Lazy load background images when needed
-    const lazyLoadBackgrounds = () => {
-        const elements = document.querySelectorAll('[data-bg]');
-        elements.forEach(el => {
-            if (el.getBoundingClientRect().top < window.innerHeight) {
-                el.style.backgroundImage = `url(${el.dataset.bg})`;
-                el.removeAttribute('data-bg');
-            }
-        });
-    };
-
-    // Throttled scroll listener for performance
-    let ticking = false;
-    const handleScroll = () => {
-        if (!ticking) {
-            requestAnimationFrame(() => {
-                lazyLoadBackgrounds();
-                ticking = false;
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    // Account for fixed header height
+                    const headerHeight = window.innerWidth >= 1024 ? 80 : 60;
+                    const targetPosition = target.offsetTop - headerHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
             });
-            ticking = true;
-        }
-    };
+        });
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
-</script>
+        // Fade in animation on scroll with better performance
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
 
-<!-- Schema.org structured data for SEO -->
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "MusicGroup",
-    "name": "Chronoscope Records",
-    "description": "Independent electronic pop music label supporting emerging artists",
-    "url": "https://chronoscoperecords.com",
-    "genre": ["Electronic Pop", "Electronic Music", "Pop Music"],
-    "sameAs": [
-        "https://soundcloud.com/chronoscoperecords",
-        "https://instagram.com/chronoscoperecords",
-        "https://twitter.com/chronoscoperecs"
-    ]
-}
-</script>
-```
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    // Stop observing once visible for better performance
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
 
+        // Observe elements only after DOM is fully loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.fade-in').forEach(el => {
+                observer.observe(el);
+            });
+        });
+
+        // Add keyboard navigation support for cards
+        document.querySelectorAll('.release-card, .artist-card').forEach(card => {
+            card.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    card.click();
+                }
+            });
+        });
+
+        // Enhanced focus management
+        document.addEventListener('keydown', (e) => {
+            // Escape key closes mobile menu
+            if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                mobileMenuBtn.classList.remove('active');
+                navLinks.classList.remove('active');
+                document.body.style.overflow = 'auto';
+                mobileMenuBtn.focus();
+            }
+        });
+
+        // Performance optimization: Lazy load background images when needed
+        const lazyLoadBackgrounds = () => {
+            const elements = document.querySelectorAll('[data-bg]');
+            elements.forEach(el => {
+                if (el.getBoundingClientRect().top < window.innerHeight) {
+                    el.style.backgroundImage = `url(${el.dataset.bg})`;
+                    el.removeAttribute('data-bg');
+                }
+            });
+        };
+
+        // Throttled scroll listener for performance
+        let ticking = false;
+        const handleScroll = () => {
+            if (!ticking) {
+                requestAnimationFrame(() => {
+                    lazyLoadBackgrounds();
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll, { passive: true });
+    </script>
+
+    <!-- Schema.org structured data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "MusicGroup",
+        "name": "Chronoscope Records",
+        "description": "Independent electronic pop music label supporting emerging artists",
+        "url": "https://chronoscoperecords.com",
+        "genre": ["Electronic Pop", "Electronic Music", "Pop Music"],
+        "sameAs": [
+            "https://soundcloud.com/chronoscoperecords",
+            "https://instagram.com/chronoscoperecords",
+            "https://twitter.com/chronoscoperecs"
+        ]
+    }
+    </script>
 </body>
 </html>
